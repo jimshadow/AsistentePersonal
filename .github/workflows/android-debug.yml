@@ -27,9 +27,12 @@ jobs:
           distribution: 'microsoft'
           java-version: '17' # Java 17 es el estándar más estable para RN 0.88.x
 
-      - name: Install Android SDK Components
-        run: |
-          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-33" "build-tools;33.0.0" "platform-tools" "ndk;25.1.8937409"
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 33
+          build-tools: 33.0.0
+          ndk-version: 25.1.8937409
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
