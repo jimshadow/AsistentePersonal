@@ -1,11 +1,11 @@
 buildscript {
     ext {
-        buildToolsVersion = "33.0.0"
+        buildToolsVersion = "36.0.0"
         minSdkVersion = 26
-        compileSdkVersion = 33
-        targetSdkVersion = 33
+        compileSdkVersion = 36
+        targetSdkVersion = 36
         ndkVersion = "28.2.13676358"
-        kotlinVersion = "2.0.21"
+        kotlinVersion = "1.9.25"
     }
     repositories {
         google()
@@ -18,20 +18,5 @@ buildscript {
     }
 }
 
-subprojects {
-    afterEvaluate {
-        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-            kotlinOptions {
-                freeCompilerArgs = [
-                    "-Xopt-in=kotlin.Optimization",
-                    "-Xopt-in=kotlin.FastNative",
-                    "-Xopt-in=kotlin.ExperimentalFastNative",
-                    "-language-version=2.0",
-                    "-api-version=2.0"
-                ]
-            }
-        }
-    }
-}
 
 apply plugin: "com.facebook.react.rootproject"
