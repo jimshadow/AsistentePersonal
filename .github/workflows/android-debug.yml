@@ -32,10 +32,7 @@ jobs:
         with:
           api-level: 33
           build-tools: 33.0.0
-          components: 'ndk;25.1.8937409'
           accept-license: true
-          cache: gradle
-          install: true
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
