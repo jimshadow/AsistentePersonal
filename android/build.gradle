@@ -18,16 +18,18 @@ buildscript {
     }
 }
 
-allprojects {
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-        kotlinOptions {
-            freeCompilerArgs = [
-                "-Xopt-in=kotlin.Optimization",
-                "-Xopt-in=kotlin.FastNative",
-                "-Xopt-in=kotlin.ExperimentalFastNative",
-                "-language-version=2.0",
-                "-api-version=2.0"
-            ]
+subprojects {
+    afterEvaluate {
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            kotlinOptions {
+                freeCompilerArgs = [
+                    "-Xopt-in=kotlin.Optimization",
+                    "-Xopt-in=kotlin.FastNative",
+                    "-Xopt-in=kotlin.ExperimentalFastNative",
+                    "-language-version=2.0",
+                    "-api-version=2.0"
+                ]
+            }
         }
     }
 }
