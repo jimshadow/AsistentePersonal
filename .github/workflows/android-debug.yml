@@ -28,11 +28,17 @@ jobs:
           java-version: '17' # Java 17 es el estándar más estable para RN 0.88.x
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          api-level: 33
-          build-tools: 33.0.0
-          accept-license: true
+        run: |
+          echo "SDK Path: $ANDROID_HOME"
+          echo "SDK Root: $ANDROID_SDK_ROOT"
+          ls -la "$ANDROID_HOME/cmdline-tools/" 2>/dev/null || echo "No cmdline-tools in $ANDROID_HOME"
+          ls -la "$ANDROID_SDK_ROOT/cmdline-tools/" 2>/dev/null || echo "No cmdline-tools in $ANDROID_SDK_ROOT"
+          echo "---"
+          echo "Platform 33:"
+          ls -la "$ANDROID_HOME/platforms/" 2>/dev/null || echo "No platforms in $ANDROID_HOME"
+          echo "---"
+          echo "NDK:"
+          ls -la "$ANDROID_HOME/ndk/" 2>/dev/null || echo "No NDK in $ANDROID_HOME"
 
       - name: Make gradlew executable
         run: chmod +x android/gradlew
