@@ -14,8 +14,8 @@ import {
   type SessionResult,
   type ExercisePhase,
 } from 'react-native-nitro-pose-exercises';
-// import { NormalCameraView } from './normal';
-import { NormalCameraView } from './skia';
+import { NormalCameraView } from './normal';
+// import { NormalCameraView } from './skia';
 import { styles } from './camera-styles';
 import { getFramingStatus } from './framing';
 
